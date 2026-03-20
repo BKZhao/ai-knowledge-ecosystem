@@ -1,0 +1,10 @@
+# 大文件（不上传）
+data/raw/*.7z
+data/parquet/*.parquet
+data/raw/extracted/
+
+# 临时文件
+__pycache__/
+*.pyc
+*.pyo
+results/*.png
