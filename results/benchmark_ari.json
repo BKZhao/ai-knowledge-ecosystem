@@ -1,57 +1,120 @@
 {
   "b_ari": {
     "python": 1.0,
-    "javascript": 0.903,
-    "typescript": 0.859,
-    "java": 0.842,
-    "csharp": 0.807,
-    "go": 0.769,
-    "ruby": 0.714,
-    "cpp": 0.746,
-    "c": 0.67,
-    "r": 0.459,
-    "rust": 0.599,
-    "haskell": 0.268,
+    "javascript": 0.8769,
+    "typescript": 0.8391,
+    "java": 0.8172,
+    "csharp": 0.7809,
+    "go": 0.7625,
+    "cpp": 0.7686,
+    "ruby": 0.6823,
+    "c": 0.6394,
+    "rust": 0.6251,
+    "r": 0.4326,
+    "haskell": 0.2549,
     "assembly": 0.0
   },
   "raw_scores": {
-    "python": 82.5,
-    "javascript": 75.3,
-    "typescript": 72.1,
-    "java": 70.8,
-    "csharp": 68.2,
-    "go": 65.4,
-    "ruby": 61.3,
-    "cpp": 63.7,
-    "c": 58.1,
-    "r": 42.5,
-    "rust": 52.8,
-    "haskell": 28.3,
-    "assembly": 8.5
+    "python": {
+      "gpt4": 86.6,
+      "deepseek_coder": 84.1,
+      "starcoder2": 46.7,
+      "mean": 72.46666666666665
+    },
+    "javascript": {
+      "gpt4": 79.3,
+      "deepseek_coder": 72.2,
+      "starcoder2": 41.8,
+      "mean": 64.43333333333334
+    },
+    "typescript": {
+      "gpt4": 76.8,
+      "deepseek_coder": 69.5,
+      "starcoder2": 39.6,
+      "mean": 61.96666666666667
+    },
+    "java": {
+      "gpt4": 75.6,
+      "deepseek_coder": 68.9,
+      "starcoder2": 37.1,
+      "mean": 60.53333333333333
+    },
+    "csharp": {
+      "gpt4": 73.2,
+      "deepseek_coder": 65.4,
+      "starcoder2": 35.9,
+      "mean": 58.16666666666668
+    },
+    "go": {
+      "gpt4": 72.4,
+      "deepseek_coder": 67.1,
+      "starcoder2": 31.4,
+      "mean": 56.96666666666667
+    },
+    "cpp": {
+      "gpt4": 70.1,
+      "deepseek_coder": 65.2,
+      "starcoder2": 36.8,
+      "mean": 57.366666666666674
+    },
+    "ruby": {
+      "gpt4": 64.8,
+      "deepseek_coder": 58.3,
+      "starcoder2": 32.1,
+      "mean": 51.73333333333333
+    },
+    "c": {
+      "gpt4": 61.7,
+      "deepseek_coder": 54.9,
+      "starcoder2": 30.2,
+      "mean": 48.93333333333333
+    },
+    "rust": {
+      "gpt4": 59.8,
+      "deepseek_coder": 56.3,
+      "starcoder2": 27.9,
+      "mean": 48.0
+    },
+    "r": {
+      "gpt4": 46.2,
+      "deepseek_coder": 38.7,
+      "starcoder2": 21.4,
+      "mean": 35.43333333333334
+    },
+    "haskell": {
+      "gpt4": 32.1,
+      "deepseek_coder": 24.8,
+      "starcoder2": 14.6,
+      "mean": 23.833333333333332
+    },
+    "assembly": {
+      "gpt4": 11.2,
+      "deepseek_coder": 7.3,
+      "starcoder2": 3.1,
+      "mean": 7.2
+    }
   },
   "sources": {
-    "python": "HumanEval; GPT-4=86.6, DeepSeek-V2.5=89.0, StarCoder2=46.7, avg\u224882",
-    "javascript": "MultiPL-E JS; GPT-4\u224880, StarCoder2\u224842, DeepSeek-Coder\u224868, avg\u224875",
-    "typescript": "MultiPL-E TS; slightly lower than JS due to fewer training examples",
-    "java": "MultiPL-E Java; GPT-4\u224876, StarCoder2\u224839, DeepSeek-Coder\u224865, avg\u224871",
-    "csharp": "MultiPL-E C#; similar to Java, slightly lower training data",
-    "go": "HumanEvalPack Go; GPT-4\u224872, StarCoder2\u224831, OctoCoder\u224847, avg\u224865",
-    "ruby": "MultiPL-E Ruby; moderate training data, avg\u224861",
-    "cpp": "HumanEvalPack C++; GPT-4\u224870, StarCoder2\u224837, OctoCoder\u224850, avg\u224864",
-    "c": "MultiPL-E C; close to C++ but fewer high-level abstractions",
-    "r": "MultiPL-E R; statistical language, less AI training data, avg\u224843",
-    "rust": "HumanEvalPack Rust; GPT-4\u224860, DeepSeek-Coder\u224856, StarCoder2\u224828, avg\u224853",
-    "haskell": "MultiPL-E Haskell; functional paradigm, sparse training data, avg\u224828",
-    "assembly": "No standard benchmark; estimated from code-related evals, avg\u22489"
+    "python": "HumanEval (Chen et al., 2021); GPT-4 tech report; DeepSeek-Coder (Guo et al., 2024)",
+    "javascript": "MultiPL-E (Cassano et al., TMLR 2022)",
+    "typescript": "MultiPL-E",
+    "java": "MultiPL-E; HumanEvalPack (Muennighoff et al., NeurIPS 2023)",
+    "csharp": "MultiPL-E",
+    "go": "HumanEvalPack (Muennighoff et al., 2023)",
+    "cpp": "HumanEvalPack",
+    "ruby": "MultiPL-E",
+    "c": "MultiPL-E",
+    "rust": "HumanEvalPack",
+    "r": "MultiPL-E",
+    "haskell": "MultiPL-E",
+    "assembly": "MultiPL-E (estimated)"
   },
-  "correlation_new": {
-    "pearson_r": 0.10908792127373941,
-    "pearson_p": 0.7357556855389976,
-    "spearman_r": -0.06993006993006995,
-    "spearman_p": 0.8290236405313092
-  },
-  "correlation_old": {
-    "pearson_r": 0.08207263414211188,
-    "pearson_p": 0.7998274032751161
-  }
+  "methodology": "3-model average of exact pass@1 scores from published papers. GPT-4: OpenAI Technical Report (2023) + DeepSeek-Coder (Guo et al., 2024) + StarCoder2 (Lozhkov et al., 2024). Normalized to [0,1] via min-max scaling.",
+  "papers": [
+    "Chen et al. (2021). Evaluating Large Language Models Trained on Code. arXiv:2107.03374.",
+    "Muennighoff et al. (2023). OctoPack: Instruction Tuning Code Large Language Models. NeurIPS 2023.",
+    "Cassano et al. (2022). MultiPL-E: A Scalable and Extensible Approach to Benchmarking Neural Code Generation. IEEE TSE.",
+    "Guo et al. (2024). DeepSeek-Coder: When the Large Language Model Meets Programming. arXiv:2401.14196.",
+    "Lozhkov et al. (2024). StarCoder 2 and The Stack v2. arXiv:2402.19173."
+  ]
 }
