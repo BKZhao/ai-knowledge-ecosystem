@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage{booktabs,multirow,geometry,caption}
+\geometry{margin=1in}
+\begin{document}
+\title{AI Knowledge Ecosystem: Regression Results H2--H6}
+\date{}\maketitle
+
+\begin{table}[htbp]
+\centering
+\caption{Table 1: Main DID Results --- AI Impact on Stack Overflow Activity}
+\begin{tabular}{lcc}
+\toprule
+ & Model 1 & Model 2 (Full FE) \\
+\midrule
+Post\_ChatGPT & -2.4439$^{***}$ & -2.2578$^{***}$ \\
+ARI $\times$ Post\_ChatGPT & 3.9381$^{***}$ & 3.8220$^{***}$ \\
+\midrule
+Language FE & Yes & Yes \\
+Time FE & No & Yes \\
+$R^2$ & 0.7857 & 0.9894 \\
+$N$ & 2390 & 2390 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Table 2: H2 --- Issue Collaboration De-socialization (Panel: Language $\times$ Month)}
+\begin{tabular}{lc}
+\toprule
+ & Issue/Repo Ratio \\
+\midrule
+ARI $\times$ Post\_ChatGPT & -0.3415$^{***}$ \\
+ & (0.0641) \\
+COVID Peak & -0.6893 \\
+ & (4.2588) \\
+Tech Layoff & -0.6818 \\
+ & (2.8270) \\
+\midrule
+Language FE & Yes \\
+Time FE & Yes \\
+$R^2$ & 0.0221 \\
+$N$ & 1269 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize $^{***}p<0.001$, $^{**}p<0.01$, $^{*}p<0.05$, $^\dagger p<0.10$.}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Table 3: H3 --- Repository Quality Dilution Effect}
+\begin{tabular}{lcc}
+\toprule
+ & Fork Rate & Star Rate \\
+\midrule
+Post\_ChatGPT ($\beta_1$) & -0.0000 & -0.0000 \\
+ & (0.0000) & (0.0000) \\
+ARI $\times$ Post\_ChatGPT ($\beta_2$) & 0.0508$^{***}$ & 0.0435$^{***}$ \\
+ & (0.0095) & (0.0063) \\
+\midrule
+Language FE & Yes & Yes \\
+Time FE & Yes & Yes \\
+$R^2$ & 0.0285 & 0.0467 \\
+$N$ & 980 & 980 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Table 4: H4 --- Cross-domain AI Displacement (Cross-sectional OLS, 12 SE Communities)}
+\begin{tabular}{lc}
+\toprule
+ & Question Volume Change (\%) \\
+\midrule
+Constant ($\alpha$) & -44.198$^{**}$ \\
+ & (10.390) \\
+AI Replaceability Index ($\beta$) & 27.593 \\
+ & (17.113) \\
+\midrule
+$R^2$ & 0.2063 \\
+$N$ & 12 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize SE community data available through June 2022. Comparison: 2019--2021 baseline vs 2022 H1. Direction consistent with hypothesis but limited by small $N$ and data availability.}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Table 5: H5 --- Multi-node Event Study: CAR(24) by AI Milestone}
+\begin{tabular}{lcccc}
+\toprule
+ & Copilot GA & ChatGPT & GPT-4 & Claude 3 \\
+ & (2022-06-21) & (2022-11-30) & (2023-03-14) & (2024-03-04) \\
+\midrule
+CAR(24) & -104.6\% & -441.7\% & -574.7\% & 340.2\% \\
+$N$ (Est. Window) & 51 & 51 & 51 & 52 \\
+$N$ (Event Window) & 24 & 24 & 24 & 24 \\
+\midrule
+Spearman $\rho$ & \multicolumn{4}{c}{0.200} \\
+$p$-value & \multicolumn{4}{c}{0.800} \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize CAR = Cumulative Abnormal Return vs trend-projected baseline. Estimation window = 52 weeks pre-event. Event window = 24 weeks post-event.}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Table 6: H6 --- Divergent Language Paths (Dependent Variable: $\ln$(GitHub Repos))}
+\begin{tabular}{lc}
+\toprule
+ & $\ln$(GitHub Repos) \\
+\midrule
+ARI $\times$ Post\_ChatGPT ($\beta_1$) & -0.5765$^{***}$ \\
+ & (0.1271) \\
+ARI $\times$ Post\_ChatGPT $\times$ High\_ARI ($\beta_2$) & 0.9158$^{***}$ \\
+ & (0.0744) \\
+\midrule
+Language FE & Yes \\
+Time FE & Yes \\
+$R^2$ & 0.1489 \\
+$N$ & 1269 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize High\_ARI = 1 if ARI $\geq$ 0.72.}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Table 7: Robustness Checks (Dependent Variable: $\ln$(SO Activity))}
+\begin{tabular}{lcccc}
+\toprule
+ & Placebo & No COVID & Copilot Era & ChatGPT Era \\
+ & (Fake 2021-06) & (Excl. 2020--21) & (2018--22) & (Full period) \\
+\midrule
+ARI $\times$ Post\_Break & -0.0746 & -1.0252$^{***}$ & -0.1660$^{†}$ & -0.9624$^{***}$ \\
+ & (0.0646) & (0.1022) & (0.0974) & (0.0865) \\
+\midrule
+$R^2$ & 0.0020 & 0.1059 & 0.0043 & 0.0996 \\
+$N$ & 660 & 851 & 671 & 1121 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize Placebo uses 2021-06-01 as fake treatment date on pre-ChatGPT data only (expected: not significant). Copilot era treatment = ARI $\times$ post\_copilot\_ga.}
+\end{table}
+
+\end{document}
