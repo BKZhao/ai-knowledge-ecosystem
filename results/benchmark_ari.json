@@ -1,0 +1,57 @@
+{
+  "b_ari": {
+    "python": 1.0,
+    "javascript": 0.903,
+    "typescript": 0.859,
+    "java": 0.842,
+    "csharp": 0.807,
+    "go": 0.769,
+    "ruby": 0.714,
+    "cpp": 0.746,
+    "c": 0.67,
+    "r": 0.459,
+    "rust": 0.599,
+    "haskell": 0.268,
+    "assembly": 0.0
+  },
+  "raw_scores": {
+    "python": 82.5,
+    "javascript": 75.3,
+    "typescript": 72.1,
+    "java": 70.8,
+    "csharp": 68.2,
+    "go": 65.4,
+    "ruby": 61.3,
+    "cpp": 63.7,
+    "c": 58.1,
+    "r": 42.5,
+    "rust": 52.8,
+    "haskell": 28.3,
+    "assembly": 8.5
+  },
+  "sources": {
+    "python": "HumanEval; GPT-4=86.6, DeepSeek-V2.5=89.0, StarCoder2=46.7, avg\u224882",
+    "javascript": "MultiPL-E JS; GPT-4\u224880, StarCoder2\u224842, DeepSeek-Coder\u224868, avg\u224875",
+    "typescript": "MultiPL-E TS; slightly lower than JS due to fewer training examples",
+    "java": "MultiPL-E Java; GPT-4\u224876, StarCoder2\u224839, DeepSeek-Coder\u224865, avg\u224871",
+    "csharp": "MultiPL-E C#; similar to Java, slightly lower training data",
+    "go": "HumanEvalPack Go; GPT-4\u224872, StarCoder2\u224831, OctoCoder\u224847, avg\u224865",
+    "ruby": "MultiPL-E Ruby; moderate training data, avg\u224861",
+    "cpp": "HumanEvalPack C++; GPT-4\u224870, StarCoder2\u224837, OctoCoder\u224850, avg\u224864",
+    "c": "MultiPL-E C; close to C++ but fewer high-level abstractions",
+    "r": "MultiPL-E R; statistical language, less AI training data, avg\u224843",
+    "rust": "HumanEvalPack Rust; GPT-4\u224860, DeepSeek-Coder\u224856, StarCoder2\u224828, avg\u224853",
+    "haskell": "MultiPL-E Haskell; functional paradigm, sparse training data, avg\u224828",
+    "assembly": "No standard benchmark; estimated from code-related evals, avg\u22489"
+  },
+  "correlation_new": {
+    "pearson_r": 0.10908792127373941,
+    "pearson_p": 0.7357556855389976,
+    "spearman_r": -0.06993006993006995,
+    "spearman_p": 0.8290236405313092
+  },
+  "correlation_old": {
+    "pearson_r": 0.08207263414211188,
+    "pearson_p": 0.7998274032751161
+  }
+}

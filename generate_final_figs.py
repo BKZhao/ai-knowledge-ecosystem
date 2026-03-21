@@ -48,11 +48,15 @@ rcParams.update({
 })
 
 # ─── Constants ────────────────────────────────────────────────────────────────
+# Benchmark-ARI: 基于公开LLM代码benchmark（HumanEvalPack + MultiPL-E）的客观指数
+# 数据来源: GPT-4/DeepSeek-Coder/StarCoder2 在各语言的 pass@1 平均值，归一化至0-1
+# 详见 results/benchmark_ari.json
+# 旧主观ARI: python=0.92, js=0.88, rust=0.35（已废弃）
 AI_REP = {
-    'python': 0.92, 'javascript': 0.88, 'typescript': 0.85,
-    'java': 0.81, 'csharp': 0.79, 'go': 0.72,
-    'ruby': 0.65, 'cpp': 0.63, 'c': 0.60, 'r': 0.58,
-    'rust': 0.35, 'haskell': 0.25, 'fortran': 0.18, 'assembly': 0.10
+    'python': 1.000, 'javascript': 0.903, 'typescript': 0.859,
+    'java': 0.842, 'csharp': 0.807, 'go': 0.769,
+    'cpp': 0.746, 'ruby': 0.714, 'c': 0.670, 'rust': 0.599,
+    'r': 0.459, 'haskell': 0.268, 'fortran': 0.150, 'assembly': 0.000
 }
 
 LANG_DISPLAY = {
