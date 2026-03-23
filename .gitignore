@@ -1,10 +1,17 @@
 # 大文件（不上传）
-data/raw/*.7z
-data/parquet/*.parquet
-data/raw/extracted/
+data/
+*.7z
+*.parquet
+*.tar.gz
+ai_knowledge_ecosystem_datasets.tar.gz
 
 # 临时文件
 __pycache__/
 *.pyc
 *.pyo
-results/*.png
+results/api_fetch_log.txt
+results/classification_*_progress.json
+
+# 大PDF（>5MB不上传，通过邮件发送）
+# results/Full_Paper_Enhanced_*.pdf
+# results/完整论文_中文版_截止2025年12月.pdf

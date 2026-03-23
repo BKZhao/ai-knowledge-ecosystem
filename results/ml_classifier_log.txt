@@ -1,0 +1,55 @@
+加载已标注数据...
+读取Parquet...
+总问题: 9,554,774
+有标注: 75,200条
+提取特征...
+训练LogisticRegression (balanced)...
+
+验证集准确率: 0.6805
+              precision    recall  f1-score   support
+
+      How-to      0.826     0.724     0.772      7540
+       Debug      0.359     0.546     0.433      1714
+  Conceptual      0.710     0.660     0.684      5575
+        Arch      0.247     0.763     0.374       211
+
+    accuracy                          0.681     15040
+   macro avg      0.536     0.673     0.566     15040
+weighted avg      0.722     0.681     0.695     15040
+
+全量重训练...
+✅ 模型保存: 准确率=0.6805, 训练集=75,200条
+
+预测全部950万条问题...
+  200,000/9,554,774 (2.1%)
+  1,200,000/9,554,774 (12.6%)
+  2,200,000/9,554,774 (23.0%)
+  3,200,000/9,554,774 (33.5%)
+  4,200,000/9,554,774 (44.0%)
+  5,200,000/9,554,774 (54.4%)
+  6,200,000/9,554,774 (64.9%)
+  7,200,000/9,554,774 (75.4%)
+  8,200,000/9,554,774 (85.8%)
+  9,200,000/9,554,774 (96.3%)
+Traceback (most recent call last):
+  File "/home/node/.local/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'CreationDate'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/train_ml_classifier.py", line 100, in <module>
+    q['year'] = pd.to_datetime(q['CreationDate']).dt.year
+                               ~^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'CreationDate'
