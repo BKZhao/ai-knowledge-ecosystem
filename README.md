@@ -325,20 +325,6 @@ pdflatex main.tex   # Run twice for cross-references
 
 ---
 
-## 🤝 Contributors
-
-<div align="center">
-
-| 🧑‍💻 **Bingkun Zhao** | 🧑‍💻 **Hongyu Chen** | 🧑‍💻 **Beining Bao** | 🧑‍🎓 **Maolin Wang\*** |
-|:---:|:---:|:---:|:---:|
-| Data Collection · Analysis | Methodology · Writing | Literature · Review | PI · Corresponding |
-
-</div>
-
-<sup>\* Corresponding author</sup>
-
----
-
 ## 📄 License
 
 <img src="https://img.shields.io/badge/License-Research_Use_Only-yellow">
