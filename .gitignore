@@ -29,3 +29,80 @@ results/Paper_*.pdf
 
 # Node
 node_modules/
+
+# Backup files
+*.bak
+*.tar.gz
+
+# Duplicate large PDFs in root (keep in output/papers/)
+Paper_Updated_20260327.pdf
+
+# Progress JSON logs (too large, not useful for repo)
+*_progress.json
+
+# Intermediate annotation data
+results/annotation_*.csv
+results/annotation_*.json
+
+# Fetch/parse logs
+results/*_log.txt
+results/*_cache*.json
+results/api_*.json
+
+# Duplicate figures in results/ (canonical versions in output/figures/)
+results/fig_*.png
+results/paper_fig*.png
+results/final_*.png
+results/regression_fig*.png
+results/github_fig*.png
+results/nature_fig*.png
+results/nature_v2_*.png
+results/so_trends*.png
+results/fig_so_*.png
+results/fig_h2_*.png
+
+# Classifier pickle files (binary, not useful in repo)
+results/*.pkl
+
+# Duplicate CSVs (canonical in data/)
+results/classification_results_combined.csv
+results/classification_results_combined.csv.bak
+
+# Full paper PDFs (large, keep only in output/papers/)
+results/Full_Paper*.pdf
+results/CSCW_*.pdf
+results/Paper_Complete*.pdf
+results/Paper_Final*.pdf
+results/RESEARCH_*.pdf
+results/FINDINGS*.pdf
+results/Research_*.pdf
+
+# Chinese PDF reports in results/
+results/*.pdf
+
+# pub_* directories (intermediate figure generations)
+pub_*/
+
+# Subfigure directories
+results/figures_*/
+results/final_figures
+
+# More results figures to ignore
+results/fig0*.png
+results/fig1*.png
+results/fig2*.png
+results/paper_fig*.png
+
+# Large output PDFs (keep one)
+output/papers/Paper_50pg_Beautiful_20260327.pdf
+output/papers/Paper_Updated_300DPI.pdf
+output/papers/Paper_v4_50pg.pdf
+output/papers/Paper_v4_50pg.pdf.bak
+
+# Extended JSON metrics
+results/github_extended_metrics.json
+
+# Large feature files (>100MB, too big for GitHub)
+data/features/post_features.csv
+data/features/user_features.csv
+data/features/user_monthly_activity.csv
