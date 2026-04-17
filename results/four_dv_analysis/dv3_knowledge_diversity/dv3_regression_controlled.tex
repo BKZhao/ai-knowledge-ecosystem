@@ -1,0 +1,33 @@
+\begin{tabular}{lccc}
+\toprule
+ & M1: Tag Entropy & M2: Unique Tags (log) & M3: Tag Concentration (HHI) \\
+\midrule
+did_copilot_beta & 0.1201 & 0.0576 & -0.0110 \\
+ & (0.4158) & (1.1194) & (0.0266) \\
+did_copilot_ga & 0.0936 & 0.2343 & 0.0087 \\
+ & (0.3080) & (0.8170) & (0.0199) \\
+did_chatgpt & 0.0974 & -0.1567 & -0.0183 \\
+ & (0.2400) & (0.6285) & (0.0154) \\
+did_gpt4 & 0.1355 & 0.1954 & -0.0060 \\
+ & (0.1850) & (0.4793) & (0.0116) \\
+did_llama2 & -0.0436 & 0.1045 & 0.0412*** \\
+ & (0.1281) & (0.3300) & (0.0085) \\
+did_code_llama & 0.1035 & -0.1782 & -0.0384*** \\
+ & (0.1140) & (0.2936) & (0.0075) \\
+did_devin & 0.1246*** & 0.1558*** & -0.0134*** \\
+ & (0.0146) & (0.0369) & (0.0009) \\
+covid_peak & 0.0038 & -0.0018 & -0.0111 \\
+ & (1.0239) & (2.2000) & (0.0968) \\
+tech_layoff & 0.1659 & 0.0958 & -0.0030 \\
+ & (0.6008) & (1.2107) & (0.0562) \\
+llm_interest & 0.5814 & 0.3035 & 0.0042 \\
+ & (0.5453) & (1.1025) & (0.0487) \\
+so_total_questions_lt & 0.3918 & 0.6193 & 0.0418 \\
+ & (54.3772) & (112.6006) & (5.0415) \\
+\midrule
+Language FE & Yes & Yes & Yes \\
+Month FE & Yes & Yes & Yes \\
+COVID/LLM controls & Yes & Yes & Yes \\
+Seasonality dummies & Yes & Yes & Yes \\
+\bottomrule
+\end{tabular}
