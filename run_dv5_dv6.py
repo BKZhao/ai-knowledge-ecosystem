@@ -131,21 +131,23 @@ print(f"  Total tagged: {len(df_lang)} rows")
 # 4. DV5: Answer Concentration
 # ============================================================
 print("\n" + "=" * 60)
-print("[DV5] Computing Answer Concentration...")
+print("[DV5] Computing Participation Concentration (question-asker-based)...")
+print("NOTE: Tags only exist on questions in this parquet. DV5 uses")
+print("      question-asker concentration per language-month as proxy.")
 print("=" * 60)
 
-answers = df_lang[df_lang[type_col] == 2].copy()  # answers only
-print(f"  Total answers with lang tag: {len(answers)}")
-answers['OwnerUserId'] = answers[owner_col]
+# Use questions (type==1) since Tags only exist on questions; no ParentId to join answers
+questions_dv5 = df_lang[df_lang[type_col] == 1].copy()
+print(f"  Total questions with lang tag: {len(questions_dv5)}")
 
 dv5_records = []
 for lang in LANG_MAP:
-    lang_ans = answers[answers['lang'] == lang]
-    if len(lang_ans) == 0:
+    lang_q5 = questions_dv5[questions_dv5['lang'] == lang]
+    if len(lang_q5) == 0:
         continue
-    for ym in sorted(lang_ans['year_month'].unique()):
-        month_ans = lang_ans[lang_ans['year_month'] == ym]
-        user_counts = month_ans['OwnerUserId'].value_counts().values
+    for ym in sorted(lang_q5['year_month'].unique()):
+        month_q = lang_q5[lang_q5['year_month'] == ym]
+        user_counts = month_q[owner_col].dropna().value_counts().values
         
         # Gini
         g = gini_coefficient(user_counts)
@@ -161,21 +163,20 @@ for lang in LANG_MAP:
         # HHI
         h = hhi(user_counts)
         
-        # Basic stats
-        n_answers = len(month_ans)
-        n_answerers = month_ans['OwnerUserId'].nunique()
+        n_posts = len(month_q)
+        n_users = month_q[owner_col].nunique()
         
         dv5_records.append({
             'lang': lang, 'year_month': ym,
-            'n_answers': n_answers,
-            'n_answerers': n_answerers,
+            'n_questions': n_posts,
+            'n_askers': n_users,
             'gini': g,
             'top10_share': top10_share,
             'hhi': h,
-            'answers_per_user': n_answers / max(n_answerers, 1)
+            'questions_per_user': n_posts / max(n_users, 1)
         })
     
-    print(f"  {lang}: {len(lang_ans)} answers")
+    print(f"  {lang}: {len(lang_q5)} questions")
 
 dv5_df = pd.DataFrame(dv5_records)
 print(f"\nDV5 panel: {len(dv5_df)} lang-months")
