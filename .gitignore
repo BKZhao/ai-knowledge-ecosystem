@@ -106,3 +106,4 @@ results/github_extended_metrics.json
 data/features/post_features.csv
 data/features/user_features.csv
 data/features/user_monthly_activity.csv
+results/four_dv_analysis/user_retention_data.csv
