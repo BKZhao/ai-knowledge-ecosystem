@@ -15,10 +15,10 @@ TAG_COL = 'Tags'  # check actual column name
 
 # Language tag mapping
 LANG_MAP = {
-    'python': '<python>', 'javascript': '<javascript>', 'typescript': '<typescript>',
-    'java': '<java>', 'csharp': '<c#>', 'go': '<go>', 'ruby': '<ruby>',
-    'cpp': '<c++>', 'c': '<c>', 'r': '<r>', 'rust': '<rust>',
-    'haskell': '<haskell>', 'assembly': '<assembly>'
+    'python': '|python|', 'javascript': '|javascript|', 'typescript': '|typescript|',
+    'java': '|java|', 'csharp': '|c#|', 'go': '|go|', 'ruby': '|ruby|',
+    'cpp': '|c++|', 'c': '|c|', 'r': '|r|', 'rust': '|rust|',
+    'haskell': '|haskell|', 'assembly': '|assembly|'
 }
 
 # ARI values (GPT-4 MultiPL-HumanEval pass@1)
@@ -80,17 +80,17 @@ tag_col = 'Tags' if 'Tags' in schema_names else ('tags' if 'tags' in schema_name
 owner_col = 'OwnerUserId' if 'OwnerUserId' in schema_names else 'OwnerDisplayName'
 type_col = 'PostTypeId' if 'PostTypeId' in schema_names else 'post_type_id'
 date_col = 'CreationDate' if 'CreationDate' in schema_names else 'creation_date'
-body_col = 'Body' if 'Body' in schema_names else 'body'
-title_col = 'Title' if 'Title' in schema_names else 'title'
+body_col = None  # BodyLength and CodeBlockCount are pre-computed
+title_col = None
 
 print(f"  tag_col={tag_col}, type_col={type_col}, date_col={date_col}")
-print(f"  owner_col={owner_col}, body_col={body_col}, title_col={title_col}")
+print(f"  owner_col={owner_col}")
 
 # ============================================================
 # 2. Read only needed columns for efficiency
 # ============================================================
 print("\n[2] Reading needed columns from parquet...")
-cols_to_read = [c for c in [tag_col, type_col, date_col, owner_col, body_col, title_col] if c is not None]
+cols_to_read = [c for c in [tag_col, type_col, date_col, owner_col, 'BodyLength', 'CodeBlockCount'] if c is not None]
 print(f"  Reading: {cols_to_read}")
 
 # Read in chunks by row groups
@@ -135,6 +135,7 @@ print("[DV5] Computing Answer Concentration...")
 print("=" * 60)
 
 answers = df_lang[df_lang[type_col] == 2].copy()  # answers only
+print(f"  Total answers with lang tag: {len(answers)}")
 answers['OwnerUserId'] = answers[owner_col]
 
 dv5_records = []
@@ -190,24 +191,6 @@ questions = df_lang[df_lang[type_col] == 1].copy()
 
 import re
 
-def count_code_blocks(body):
-    if pd.isna(body):
-        return 0
-    # Count ``` blocks
-    n = len(re.findall(r'```', str(body)))
-    return n // 2
-
-def count_code_tags(body):
-    if pd.isna(body):
-        return 0
-    return len(re.findall(r'<code>', str(body)))
-
-def has_code(body):
-    if pd.isna(body):
-        return 0
-    b = str(body)
-    return 1 if ('<code>' in b or '```' in b) else 0
-
 dv6_records = []
 for lang in LANG_MAP:
     lang_q = questions[questions['lang'] == lang]
@@ -216,32 +199,16 @@ for lang in LANG_MAP:
     for ym in sorted(lang_q['year_month'].unique()):
         month_q = lang_q[lang_q['year_month'] == ym]
         
-        # Body length
-        body_lens = month_q[body_col].dropna().apply(lambda x: len(str(x)))
-        median_body_len = body_lens.median() if len(body_lens) > 0 else np.nan
-        
-        # Title length
-        title_lens = month_q[title_col].dropna().apply(lambda x: len(str(x)))
-        median_title_len = title_lens.median() if len(title_lens) > 0 else np.nan
-        
-        # Code blocks
-        code_counts = month_q[body_col].apply(count_code_blocks)
-        median_code_blocks = code_counts.median() if len(code_counts) > 0 else np.nan
-        
-        # Fraction with code
-        frac_with_code = month_q[body_col].apply(has_code).mean()
-        
-        # Code tags count
-        code_tag_counts = month_q[body_col].apply(count_code_tags)
-        median_code_tags = code_tag_counts.median() if len(code_tag_counts) > 0 else np.nan
+        # Use pre-computed BodyLength and CodeBlockCount
+        median_body_len = month_q['BodyLength'].median() if len(month_q) > 0 else np.nan
+        median_code_blocks = month_q['CodeBlockCount'].median() if len(month_q) > 0 else np.nan
+        frac_with_code = (month_q['CodeBlockCount'] > 0).mean() if len(month_q) > 0 else np.nan
         
         dv6_records.append({
             'lang': lang, 'year_month': ym,
             'n_questions': len(month_q),
             'median_body_len': median_body_len,
-            'median_title_len': median_title_len,
             'median_code_blocks': median_code_blocks,
-            'median_code_tags': median_code_tags,
             'frac_with_code': frac_with_code
         })
     
@@ -256,6 +223,8 @@ print(f"\nDV6 panel: {len(dv6_df)} lang-months")
 def build_panel(dv_df, dv_name):
     """Add ARI, event dummies, FE columns."""
     df = dv_df.copy()
+    if df.empty:
+        return df
     df['ari'] = df['lang'].map(ARI)
     
     # Remove na ari

@@ -36,19 +36,24 @@ stars <- function(p) {
 }
 
 build_panel <- function(df_raw, dv_col) {
-  df_raw %>%
+  df_out <- df_raw %>%
     mutate(
       month_dt = as.Date(paste0(month, "-01")),
       ari = ARI_CORRECTED[lang],
-      ari_c = ari - mean(ari, na.rm = TRUE),
+      ari_c = ari - mean(ARI_CORRECTED),
       lang_fe = lang,
       time_fe = month,
-    ) %>%
-    # Add event dummies and interactions
-    mutate(across(EVENTS$short, ~ as.integer(month_dt >= EVENTS$date[match(cur_column(), EVENTS$short)]),
-                  .names = "post_{.col}")) %>%
-    mutate(across(starts_with("post_"), ~ ari_c * ., .names = "did_{.col}")) %>%
-    drop_na(all_of(dv_col))
+    )
+  
+  # Add event dummies
+  for (i in seq_len(nrow(EVENTS))) {
+    ev <- EVENTS$short[i]
+    dt <- EVENTS$date[i]
+    df_out[[paste0("post_", ev)]] <- as.integer(df_out$month_dt >= dt)
+    df_out[[paste0("did_", ev)]] <- df_out$ari_c * df_out[[paste0("post_", ev)]]
+  }
+  
+  df_out %>% drop_na(all_of(dv_col))
 }
 
 run_multi_did <- function(panel, dv_col, out_dir, label) {
@@ -231,8 +236,8 @@ dv5_raw <- read_csv(file.path(PROCESSED_DIR, "dv5_answer_concentration.csv"),
 dv6_raw <- read_csv(file.path(PROCESSED_DIR, "dv6_question_complexity.csv"),
                     show_col_types = FALSE)
 
-cat(sprintf("DV5: %d rows, %d languages\n", nrow(dv5_raw), dv5_raw$lang %>% nunique()))
-cat(sprintf("DV6: %d rows, %d languages\n", nrow(dv6_raw), dv6_raw$lang %>% nunique()))
+cat(sprintf("DV5: %d rows, %d languages\n", nrow(dv5_raw), n_distinct(dv5_raw$lang)))
+cat(sprintf("DV6: %d rows, %d languages\n", nrow(dv6_raw), n_distinct(dv6_raw$lang)))
 
 # =============================================================================
 # DV5: Answer Concentration
@@ -340,8 +345,8 @@ summary_lines <- c(
   "",
   "| Metric | Languages | Months | N obs |",
   "|--------|-----------|--------|-------|",
-  sprintf("| %s | %d | %d | %d |", dv5_metrics[1], dv5_raw$lang %>% nunique(),
-          dv5_raw$month %>% nunique(), nrow(dv5_raw)),
+  sprintf("| %s | %d | %d | %d |", dv5_metrics[1], n_distinct(dv5_raw$lang),
+          n_distinct(dv5_raw$month), nrow(dv5_raw)),
   "",
   "### Key DID Results (ChatGPT interaction with ARI)",
   ""
@@ -365,8 +370,8 @@ for (metric in dv5_metrics) {
 summary_lines <- c(summary_lines, "", "## DV6: Question Complexity", "",
   sprintf("| Metric | Languages | Months | N obs |"),
   sprintf("|--------|-----------|--------|-------|"),
-  sprintf("| %s | %d | %d | %d |", dv6_metrics[1], dv6_raw$lang %>% nunique(),
-          dv6_raw$month %>% nunique(), nrow(dv6_raw)),
+  sprintf("| %s | %d | %d | %d |", dv6_metrics[1], n_distinct(dv6_raw$lang),
+          n_distinct(dv6_raw$month), nrow(dv6_raw)),
   "", "### Key DID Results (ChatGPT interaction with ARI)", ""
 )
 

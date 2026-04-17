@@ -1,0 +1,57 @@
+\begin{table}[htbp]\centering
+\caption{dv6_median_code_blocks: Multi-breakpoint DID (Two-Way FE)}
+\begin{tabular}{lcc}
+\toprule
+ & \multicolumn{2}{c}{median_code_blocks} \\
+\cmidrule(l){2-3}
+ & Post Event & ARI $\times$ Post \\
+\midrule
+\textit{Copilot $\beta$} & & \\
+ & -0.0000* & \\
+ & (0.0000) & \\
+ &  & 0.1655 \\
+ &  & (0.1746) \\
+\textit{Copilot GA} & & \\
+ & -0.0000 & \\
+ & (0.0000) & \\
+ &  & 0.3294 \\
+ &  & (0.2850) \\
+\textit{ChatGPT} & & \\
+ & -0.0000 & \\
+ & (0.0000) & \\
+ &  & 0.0390 \\
+ &  & (0.3936) \\
+\textit{GPT-4} & & \\
+ & -0.0000 & \\
+ & (0.0000) & \\
+ &  & -0.9381* \\
+ &  & (0.4047) \\
+\textit{Llama 2} & & \\
+ & -0.0000 & \\
+ & (0.0000) & \\
+ &  & 0.2572 \\
+ &  & (0.3456) \\
+\textit{Code Llama} & & \\
+ & 0.0000 & \\
+ & (0.0000) & \\
+ &  & 0.3448 \\
+ &  & (0.3317) \\
+\textit{Devin} & & \\
+ & 0.0000 & \\
+ & (0.0000) & \\
+ &  & 0.0000 \\
+ &  & (0.0000) \\
+\textit{Claude 3.5} & & \\
+ & 0.0000 & \\
+ & (0.0000) & \\
+ &  & 0.0000 \\
+ &  & (0.0000) \\
+\midrule
+Language FE & \multicolumn{2}{c}{Yes} \\
+Month FE    & \multicolumn{2}{c}{Yes} \\
+$R^2$ & \multicolumn{2}{c}{0.0177} \\
+$N$   & \multicolumn{2}{c}{975} \\
+\bottomrule
+\end{tabular}
+{\footnotesize $^{***}p<0.001$, $^{**}p<0.01$, $^{*}p<0.05$, $^{\dagger}p<0.10$. HC3 robust SE.}
+\end{table}
