@@ -1,0 +1,30 @@
+\begin{tabular}{lrrrrll}
+\toprule
+variable & coefficient & std_error & t_stat & p_value & sig & model \\
+\midrule
+const & -0.0000 & 0.0000 & -0.0009 & 0.9993 &  & M_log_body_len \\
+did_copilot_beta & 0.0143 & 0.0304 & 0.4722 & 0.6369 &  & M_log_body_len \\
+did_copilot_ga & 0.0241 & 0.0173 & 1.3934 & 0.1638 &  & M_log_body_len \\
+did_chatgpt & -0.0718 & 0.0512 & -1.4017 & 0.1613 &  & M_log_body_len \\
+did_gpt4 & 0.0140 & 0.0300 & 0.4672 & 0.6405 &  & M_log_body_len \\
+did_llama2 & 0.0077 & 0.1424 & 0.0542 & 0.9568 &  & M_log_body_len \\
+did_code_llama & -0.0333 & 0.1739 & -0.1913 & 0.8483 &  & M_log_body_len \\
+did_devin & -0.1547 & 0.1072 & -1.4434 & 0.1492 &  & M_log_body_len \\
+const & -0.0000 & 0.0000 & -0.0727 & 0.9421 &  & M_median_code_blocks \\
+did_copilot_beta & 0.2462 & 0.2463 & 0.9993 & 0.3179 &  & M_median_code_blocks \\
+did_copilot_ga & -0.0777 & 0.2071 & -0.3755 & 0.7074 &  & M_median_code_blocks \\
+did_chatgpt & 0.3006 & 0.1190 & 2.5252 & 0.0117 & ** & M_median_code_blocks \\
+did_gpt4 & -0.7184 & 0.4048 & -1.7747 & 0.0763 & * & M_median_code_blocks \\
+did_llama2 & -0.4951 & 0.5395 & -0.9177 & 0.3590 &  & M_median_code_blocks \\
+did_code_llama & 0.8155 & 0.6620 & 1.2318 & 0.2183 &  & M_median_code_blocks \\
+did_devin & -0.2160 & 0.2995 & -0.7212 & 0.4710 &  & M_median_code_blocks \\
+const & -0.0000 & 0.0000 & -0.0188 & 0.9850 &  & M_frac_with_code \\
+did_copilot_beta & -0.0067 & 0.0109 & -0.6179 & 0.5368 &  & M_frac_with_code \\
+did_copilot_ga & 0.0176 & 0.0042 & 4.1755 & 0.0000 & *** & M_frac_with_code \\
+did_chatgpt & -0.0238 & 0.0095 & -2.4969 & 0.0127 & ** & M_frac_with_code \\
+did_gpt4 & 0.0127 & 0.0122 & 1.0380 & 0.2995 &  & M_frac_with_code \\
+did_llama2 & 0.0000 & 0.0220 & 0.0001 & 0.9999 &  & M_frac_with_code \\
+did_code_llama & -0.0183 & 0.0161 & -1.1420 & 0.2537 &  & M_frac_with_code \\
+did_devin & -0.0949 & 0.0240 & -3.9607 & 0.0001 & *** & M_frac_with_code \\
+\bottomrule
+\end{tabular}

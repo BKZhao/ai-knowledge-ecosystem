@@ -78,14 +78,17 @@ for i in range(pf.metadata.num_row_groups):
     if len(rg) == 0:
         continue
     
-    # DV5: answers
-    ans = rg[rg['PostTypeId'] == 2]
-    for _, row in ans.iterrows():
-        dv5_acc[row['lang']][row['ym']]['owner'].append(row['OwnerUserId'])
+    # DV5: user concentration (questions have tags; answers don't, so we use all question owners)
+    # Note: SO answers lack Tags; true answer-to-question linking requires ParentId.
+    # DV5 computed as asker concentration per language-month as proxy for participation democratization.
+    qs_all = rg[rg['PostTypeId'] == 1]
+    for _, row in qs_all.iterrows():
+        uid = row.get('OwnerUserId', None)
+        if pd.notna(uid):
+            dv5_acc[row['lang']][row['ym']]['owner'].append(uid)
     
-    # DV6: questions
-    qs = rg[rg['PostTypeId'] == 1]
-    for _, row in qs.iterrows():
+    # DV6: question complexity (reuse qs_all from DV5 loop above)
+    for _, row in qs_all.iterrows():
         dv6_acc[row['lang']][row['ym']]['body_len'].append(row.get('BodyLength', 0) or 0)
         dv6_acc[row['lang']][row['ym']]['code_blocks'].append(row.get('CodeBlockCount', 0) or 0)
     
@@ -241,8 +244,8 @@ to_tex(dv5_all, f'{OUT}/dv5_answer_concentration/dv5_regression.tex')
 to_tex(dv6_all, f'{OUT}/dv6_question_complexity/dv6_regression.tex')
 
 # Summary
-s = "# DV5 & DV6 Summary\n\n## DV5: Answer Concentration\n"
-s += f"Panel: {len(dv5_panel)} lang-months\nControls: Language FE + Month FE, cluster SE by language\n\n"
+s = "# DV5 & DV6 Summary\n\n## DV5: User (Asker) Concentration\n"
+s += f"Panel: {len(dv5_panel)} lang-months\nControls: Language FE + Month FE, cluster SE by language\nNote: SO answers lack Tags in this dataset; concentration computed from question askers.\n\n"
 for yv in ['gini','top10_share','hhi']:
     sub = dv5_all[(dv5_all['model']==f'M_{yv}')&(dv5_all['variable'].str.startswith('did_'))]
     sig = sub[sub['p_value']<0.05]
