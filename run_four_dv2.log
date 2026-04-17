@@ -1,0 +1,76 @@
+STEP 0: Building language-month panel...
+Reading questions...
+Questions with language: 4395952
+Panel: (975, 32), Events: ['copilot_beta', 'copilot_ga', 'chatgpt', 'gpt4', 'llama2', 'code_llama', 'devin']
+Building tag diversity panel...
+Diversity panel: (975, 16)
+Building user retention data...
+Users: 1649977
+
+============================================================
+DV1: ANSWER SUPPLY — 8-Event DID
+============================================================
+
+--- M1_pct_accepted (N=975) ---
+  did_copilot_beta               β=+0.008388  SE=0.012791  p=0.5121 
+  did_copilot_ga                 β=-0.019809  SE=0.019004  p=0.2975 
+  did_chatgpt                    β=-0.000239  SE=0.022362  p=0.9915 
+  did_gpt4                       β=-0.060700  SE=0.023572  p=0.0102 *
+  did_llama2                     β=-0.031340  SE=0.037270  p=0.4006 
+  did_code_llama                 β=-0.003119  SE=0.035637  p=0.9303 
+  did_devin                      β=+0.074732  SE=0.035637  p=0.0362 *
+  covid                          β=+0.000000  SE=18513049627049.812500  p=1.0000 
+
+--- M2_avg_answers_lt (N=975) ---
+  did_copilot_beta               β=-0.042103  SE=0.012463  p=0.0008 ***
+  did_copilot_ga                 β=-0.015763  SE=0.018517  p=0.3948 
+  did_chatgpt                    β=+0.001183  SE=0.021789  p=0.9567 
+  did_gpt4                       β=-0.115367  SE=0.022967  p=0.0000 ***
+  did_llama2                     β=-0.014572  SE=0.036314  p=0.6883 
+  did_code_llama                 β=-0.024755  SE=0.034723  p=0.4761 
+  did_devin                      β=-0.015455  SE=0.034723  p=0.6563 
+
+--- M3_question_count_lt (N=975) ---
+  did_copilot_beta               β=-0.246507  SE=0.103583  p=0.0175 *
+  did_copilot_ga                 β=+0.161554  SE=0.153902  p=0.2941 
+  did_chatgpt                    β=-0.357036  SE=0.181096  p=0.0489 *
+  did_gpt4                       β=+0.240688  SE=0.190892  p=0.2077 
+  did_llama2                     β=+0.182318  SE=0.301827  p=0.5460 
+  did_code_llama                 β=-0.410404  SE=0.288602  p=0.1553 
+  did_devin                      β=+0.071395  SE=0.288602  p=0.8047 
+
+--- R1_chatgpt_only_pct_accepted (N=975) ---
+  did_chatgpt_only               β=-0.071913  SE=0.009279  p=0.0000 ***
+  covid                          β=+0.000000  SE=18685298129848.261719  p=1.0000 
+
+--- R2_no_covid_pct_accepted (N=663) ---
+  did_copilot_beta               β=+0.020923  SE=0.017359  p=0.2285 
+  did_copilot_ga                 β=-0.022632  SE=0.022332  p=0.3112 
+  did_chatgpt                    β=-0.000239  SE=0.023687  p=0.9920 
+  did_gpt4                       β=-0.060700  SE=0.024968  p=0.0153 *
+  did_llama2                     β=-0.031340  SE=0.039478  p=0.4276 
+  did_code_llama                 β=-0.003119  SE=0.037749  p=0.9342 
+  did_devin                      β=+0.074732  SE=0.037749  p=0.0482 *
+DV1 Event Study...
+Traceback (most recent call last):
+  File "/home/node/.local/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'mt_-59'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/node/.openclaw/workspaces/ou_061694b4b8257fa782c21a959956256d/stackoverflow_research/run_four_dv.py", line 291, in <module>
+    panel.loc[:, c + '_ari'] = panel[c].values * panel['ari_centered'].values
+                               ~~~~~^^^
+  File "/home/node/.local/lib/python3.11/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'mt_-59'

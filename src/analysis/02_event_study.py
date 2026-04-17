@@ -104,7 +104,7 @@ def run_event_study(
     - baseline_model: 基准OLS模型
     - ar_se: 异常值标准误（Newey-West）
     """
-    event_date = pd.Timestamp(event_date, tz="UTC") if "UTC" not in str(event_date) else pd.Timestamp(event_date)
+    event_date = pd.Timestamp(event_date).tz_localize(None)
     
     # 找事件周索引
     df_sorted = df.sort_values("week_start").reset_index(drop=True)
@@ -164,6 +164,7 @@ def run_event_study(
     
     # ---- 异常值计算 ----
     ar = y_actual - y_pred  # 异常值（Abnormal Returns）
+    ar = np.asarray(ar, dtype=float)
     car = np.cumsum(ar)     # 累积异常值（CAR）
     
     # 相对时间（0 = 事件周）
@@ -202,9 +203,9 @@ def run_event_study(
         "df_evt_dates": df_evt["week_start"].values,
         "baseline_model": model,
         "r_squared": model.rsquared,
-        "car_final": car[-1] if len(car) > 0 else np.nan,
-        "car_final_se": car_se[-1] if len(car_se) > 0 else np.nan,
-        "car_final_t": car[-1] / car_se[-1] if car_se[-1] > 0 else np.nan,
+        "car_final": float(car[-1]) if len(car) > 0 else np.nan,
+        "car_final_se": float(car_se[-1]) if len(car_se) > 0 else np.nan,
+        "car_final_t": float(car[-1] / car_se[-1]) if len(car) > 0 and len(car_se) > 0 and car_se[-1] > 0 else np.nan,
         "est_window_size": len(df_est),
     }
 

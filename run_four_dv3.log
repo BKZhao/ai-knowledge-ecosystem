@@ -1,0 +1,285 @@
+STEP 0: Building language-month panel...
+Reading questions...
+Questions with language: 4395952
+Panel: (975, 32), Events: ['copilot_beta', 'copilot_ga', 'chatgpt', 'gpt4', 'llama2', 'code_llama', 'devin']
+Building tag diversity panel...
+Diversity panel: (975, 16)
+Building user retention data...
+Users: 1649977
+
+============================================================
+DV1: ANSWER SUPPLY — 8-Event DID
+============================================================
+
+--- M1_pct_accepted (N=975) ---
+  did_copilot_beta               β=+0.008388  SE=0.012791  p=0.5121 
+  did_copilot_ga                 β=-0.019809  SE=0.019004  p=0.2975 
+  did_chatgpt                    β=-0.000239  SE=0.022362  p=0.9915 
+  did_gpt4                       β=-0.060700  SE=0.023572  p=0.0102 *
+  did_llama2                     β=-0.031340  SE=0.037270  p=0.4006 
+  did_code_llama                 β=-0.003119  SE=0.035637  p=0.9303 
+  did_devin                      β=+0.074732  SE=0.035637  p=0.0362 *
+  covid                          β=+0.000000  SE=18513049627049.812500  p=1.0000 
+
+--- M2_avg_answers_lt (N=975) ---
+  did_copilot_beta               β=-0.042103  SE=0.012463  p=0.0008 ***
+  did_copilot_ga                 β=-0.015763  SE=0.018517  p=0.3948 
+  did_chatgpt                    β=+0.001183  SE=0.021789  p=0.9567 
+  did_gpt4                       β=-0.115367  SE=0.022967  p=0.0000 ***
+  did_llama2                     β=-0.014572  SE=0.036314  p=0.6883 
+  did_code_llama                 β=-0.024755  SE=0.034723  p=0.4761 
+  did_devin                      β=-0.015455  SE=0.034723  p=0.6563 
+
+--- M3_question_count_lt (N=975) ---
+  did_copilot_beta               β=-0.246507  SE=0.103583  p=0.0175 *
+  did_copilot_ga                 β=+0.161554  SE=0.153902  p=0.2941 
+  did_chatgpt                    β=-0.357036  SE=0.181096  p=0.0489 *
+  did_gpt4                       β=+0.240688  SE=0.190892  p=0.2077 
+  did_llama2                     β=+0.182318  SE=0.301827  p=0.5460 
+  did_code_llama                 β=-0.410404  SE=0.288602  p=0.1553 
+  did_devin                      β=+0.071395  SE=0.288602  p=0.8047 
+
+--- R1_chatgpt_only_pct_accepted (N=975) ---
+  did_chatgpt_only               β=-0.071913  SE=0.009279  p=0.0000 ***
+  covid                          β=+0.000000  SE=18685298129848.261719  p=1.0000 
+
+--- R2_no_covid_pct_accepted (N=663) ---
+  did_copilot_beta               β=+0.020923  SE=0.017359  p=0.2285 
+  did_copilot_ga                 β=-0.022632  SE=0.022332  p=0.3112 
+  did_chatgpt                    β=-0.000239  SE=0.023687  p=0.9920 
+  did_gpt4                       β=-0.060700  SE=0.024968  p=0.0153 *
+  did_llama2                     β=-0.031340  SE=0.039478  p=0.4276 
+  did_code_llama                 β=-0.003119  SE=0.037749  p=0.9342 
+  did_devin                      β=+0.074732  SE=0.037749  p=0.0482 *
+DV1 Event Study...
+
+============================================================
+DV2: VIEW COUNT — 8-Event DID
+============================================================
+
+--- M1_avg_views_lt (N=975) ---
+  did_copilot_beta               β=+0.237112  SE=0.089913  p=0.0085 **
+  did_copilot_ga                 β=-0.265779  SE=0.133591  p=0.0469 *
+  did_chatgpt                    β=+0.303768  SE=0.157196  p=0.0536 
+  did_gpt4                       β=-0.121487  SE=0.165699  p=0.4636 
+  did_llama2                     β=-0.070728  SE=0.261994  p=0.7872 
+  did_code_llama                 β=-0.509938  SE=0.250514  p=0.0421 *
+  did_devin                      β=-0.872513  SE=0.250514  p=0.0005 ***
+
+--- M2_total_views_lt (N=975) ---
+  did_copilot_beta               β=-0.008134  SE=0.089579  p=0.9277 
+  did_copilot_ga                 β=-0.102495  SE=0.133095  p=0.4414 
+  did_chatgpt                    β=-0.051593  SE=0.156612  p=0.7419 
+  did_gpt4                       β=+0.123294  SE=0.165083  p=0.4553 
+  did_llama2                     β=+0.114776  SE=0.261020  p=0.6602 
+  did_code_llama                 β=-0.922791  SE=0.249583  p=0.0002 ***
+  did_devin                      β=-0.811045  SE=0.249583  p=0.0012 **
+
+--- M3_views_per_question_lt (N=975) ---
+  did_copilot_beta               β=+0.237112  SE=0.089913  p=0.0085 **
+  did_copilot_ga                 β=-0.265779  SE=0.133591  p=0.0469 *
+  did_chatgpt                    β=+0.303768  SE=0.157196  p=0.0536 
+  did_gpt4                       β=-0.121487  SE=0.165699  p=0.4636 
+  did_llama2                     β=-0.070728  SE=0.261994  p=0.7872 
+  did_code_llama                 β=-0.509938  SE=0.250514  p=0.0421 *
+  did_devin                      β=-0.872513  SE=0.250514  p=0.0005 ***
+
+--- R1_chatgpt_only_avg_views (N=975) ---
+  did_chatgpt_only               β=-0.176774  SE=0.066463  p=0.0079 **
+
+============================================================
+DV3: KNOWLEDGE DIVERSITY — 8-Event DID
+============================================================
+
+--- M1_tag_entropy (N=975) ---
+  did_copilot_beta               β=+0.064824  SE=0.050327  p=0.1980 
+  did_copilot_ga                 β=+0.048743  SE=0.074774  p=0.5146 
+  did_chatgpt                    β=+0.066074  SE=0.087987  p=0.4529 
+  did_gpt4                       β=+0.094264  SE=0.092746  p=0.3097 
+  did_llama2                     β=+0.078377  SE=0.146644  p=0.5931 
+  did_code_llama                 β=+0.009613  SE=0.140219  p=0.9454 
+  did_devin                      β=+0.074914  SE=0.140219  p=0.5933 
+
+--- M2_unique_tags_lt (N=975) ---
+  did_copilot_beta               β=-0.114995  SE=0.079222  p=0.1469 
+  did_copilot_ga                 β=+0.152315  SE=0.117707  p=0.1960 
+  did_chatgpt                    β=-0.152266  SE=0.138505  p=0.2719 
+  did_gpt4                       β=+0.171992  SE=0.145997  p=0.2391 
+  did_llama2                     β=+0.195889  SE=0.230842  p=0.3963 
+  did_code_llama                 β=-0.239066  SE=0.220727  p=0.2790 
+  did_devin                      β=+0.075317  SE=0.220727  p=0.7330 
+
+--- M3_tag_concentration (N=975) ---
+  did_copilot_beta               β=-0.011641  SE=0.006452  p=0.0715 
+  did_copilot_ga                 β=+0.009443  SE=0.009586  p=0.3248 
+  did_chatgpt                    β=-0.013517  SE=0.011280  p=0.2311 
+  did_gpt4                       β=+0.000476  SE=0.011890  p=0.9681 
+  did_llama2                     β=+0.025277  SE=0.018799  p=0.1791 
+  did_code_llama                 β=-0.027482  SE=0.017976  p=0.1266 
+  did_devin                      β=-0.006698  SE=0.017976  p=0.7095 
+
+============================================================
+DV4: USER RETENTION
+============================================================
+Model 1: Full Cox PH (multi-event)
+DV4 failed: delta contains nan value(s). Convergence halted. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+Traceback (most recent call last):
+  File "/home/node/.openclaw/workspaces/ou_061694b4b8257fa782c21a959956256d/stackoverflow_research/run_four_dv.py", line 491, in <module>
+    cph.fit(cox_data, duration_col='duration', event_col='event')
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/utils/__init__.py", line 56, in f
+    return function(model, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/fitters/coxph_fitter.py", line 290, in fit
+    self._model = self._fit_model(
+                  ^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/fitters/coxph_fitter.py", line 610, in _fit_model
+    return self._fit_model_breslow(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/fitters/coxph_fitter.py", line 623, in _fit_model_breslow
+    model.fit(*args, **kwargs)
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/utils/__init__.py", line 56, in f
+    return function(model, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/fitters/coxph_fitter.py", line 1252, in fit
+    params_, ll_, variance_matrix_, baseline_hazard_, baseline_cumulative_hazard_, model = self._fit_model(
+                                                                                           ^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/fitters/coxph_fitter.py", line 1380, in _fit_model
+    beta_, ll_, hessian_ = self._newton_raphson_for_efron_model(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/node/.local/lib/python3.11/site-packages/lifelines/fitters/coxph_fitter.py", line 1553, in _newton_raphson_for_efron_model
+    raise exceptions.ConvergenceError(
+lifelines.exceptions.ConvergenceError: delta contains nan value(s). Convergence halted. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+
+============================================================
+SUMMARY
+============================================================
+# Four-DV Causal Inference: 8-Event Multi-Break DID
+
+## Design
+- **Panel:** language × month, 2018-01 to 2024-03
+- **N questions:** 4,395,952
+- **Treatment:** ARI (continuous) × Post_Event (8 binary breaks)
+- **FE:** Two-way (language + month), demeaned OLS
+- **Events:** copilot_beta, copilot_ga, chatgpt, gpt4, llama2, code_llama, devin
+
+## DV1: Answer Supply
+
+### M1: pct_accepted × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | -0.000239 | 0.022362 | 0.9915 |  |
+| code_llama | -0.003119 | 0.035637 | 0.9303 |  |
+| copilot_beta | +0.008388 | 0.012791 | 0.5121 |  |
+| copilot_ga | -0.019809 | 0.019004 | 0.2975 |  |
+| devin | +0.074732 | 0.035637 | 0.0362 | * |
+| gpt4 | -0.060700 | 0.023572 | 0.0102 | * |
+| llama2 | -0.031340 | 0.037270 | 0.4006 |  |
+
+### M2: avg_answers_lt × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | +0.001183 | 0.021789 | 0.9567 |  |
+| code_llama | -0.024755 | 0.034723 | 0.4761 |  |
+| copilot_beta | -0.042103 | 0.012463 | 0.0008 | *** |
+| copilot_ga | -0.015763 | 0.018517 | 0.3948 |  |
+| devin | -0.015455 | 0.034723 | 0.6563 |  |
+| gpt4 | -0.115367 | 0.022967 | 0.0000 | *** |
+| llama2 | -0.014572 | 0.036314 | 0.6883 |  |
+
+### M3: question_count_lt × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | -0.357036 | 0.181096 | 0.0489 | * |
+| code_llama | -0.410404 | 0.288602 | 0.1553 |  |
+| copilot_beta | -0.246507 | 0.103583 | 0.0175 | * |
+| copilot_ga | +0.161554 | 0.153902 | 0.2941 |  |
+| devin | +0.071395 | 0.288602 | 0.8047 |  |
+| gpt4 | +0.240688 | 0.190892 | 0.2077 |  |
+| llama2 | +0.182318 | 0.301827 | 0.5460 |  |
+
+### Robustness: ChatGPT-only DID
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt_only | -0.071913 | 0.009279 | 0.0000 | *** |
+
+## DV2: View Count
+
+### M1: avg_views_lt × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | +0.303768 | 0.157196 | 0.0536 |  |
+| code_llama | -0.509938 | 0.250514 | 0.0421 | * |
+| copilot_beta | +0.237112 | 0.089913 | 0.0085 | ** |
+| copilot_ga | -0.265779 | 0.133591 | 0.0469 | * |
+| devin | -0.872513 | 0.250514 | 0.0005 | *** |
+| gpt4 | -0.121487 | 0.165699 | 0.4636 |  |
+| llama2 | -0.070728 | 0.261994 | 0.7872 |  |
+
+### M2: total_views_lt × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | -0.051593 | 0.156612 | 0.7419 |  |
+| code_llama | -0.922791 | 0.249583 | 0.0002 | *** |
+| copilot_beta | -0.008134 | 0.089579 | 0.9277 |  |
+| copilot_ga | -0.102495 | 0.133095 | 0.4414 |  |
+| devin | -0.811045 | 0.249583 | 0.0012 | ** |
+| gpt4 | +0.123294 | 0.165083 | 0.4553 |  |
+| llama2 | +0.114776 | 0.261020 | 0.6602 |  |
+
+### M3: views_per_question_lt × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | +0.303768 | 0.157196 | 0.0536 |  |
+| code_llama | -0.509938 | 0.250514 | 0.0421 | * |
+| copilot_beta | +0.237112 | 0.089913 | 0.0085 | ** |
+| copilot_ga | -0.265779 | 0.133591 | 0.0469 | * |
+| devin | -0.872513 | 0.250514 | 0.0005 | *** |
+| gpt4 | -0.121487 | 0.165699 | 0.4636 |  |
+| llama2 | -0.070728 | 0.261994 | 0.7872 |  |
+
+## DV3: Knowledge Diversity
+
+### M1: tag_entropy × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | +0.066074 | 0.087987 | 0.4529 |  |
+| code_llama | +0.009613 | 0.140219 | 0.9454 |  |
+| copilot_beta | +0.064824 | 0.050327 | 0.1980 |  |
+| copilot_ga | +0.048743 | 0.074774 | 0.5146 |  |
+| devin | +0.074914 | 0.140219 | 0.5933 |  |
+| gpt4 | +0.094264 | 0.092746 | 0.3097 |  |
+| llama2 | +0.078377 | 0.146644 | 0.5931 |  |
+
+### M2: unique_tags_lt × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | -0.152266 | 0.138505 | 0.2719 |  |
+| code_llama | -0.239066 | 0.220727 | 0.2790 |  |
+| copilot_beta | -0.114995 | 0.079222 | 0.1469 |  |
+| copilot_ga | +0.152315 | 0.117707 | 0.1960 |  |
+| devin | +0.075317 | 0.220727 | 0.7330 |  |
+| gpt4 | +0.171992 | 0.145997 | 0.2391 |  |
+| llama2 | +0.195889 | 0.230842 | 0.3963 |  |
+
+### M3: tag_concentration × 8 events
+| Event | β | SE | p | Sig |
+|-------|------|------|--------|-----|
+| chatgpt | -0.013517 | 0.011280 | 0.2311 |  |
+| code_llama | -0.027482 | 0.017976 | 0.1266 |  |
+| copilot_beta | -0.011641 | 0.006452 | 0.0715 |  |
+| copilot_ga | +0.009443 | 0.009586 | 0.3248 |  |
+| devin | -0.006698 | 0.017976 | 0.7095 |  |
+| gpt4 | +0.000476 | 0.011890 | 0.9681 |  |
+| llama2 | +0.025277 | 0.018799 | 0.1791 |  |
+
+## DV4: User Retention
+Status: ❌ Failed
+See `dv4_user_retention/` for Cox PH and KM curves.
+
+## Key Findings
+- **Answer Supply**: 2/7 events significant. Strongest: gpt4 (β=-0.0607, p=0.0102). Overall direction: negative.
+- **Views**: 4/7 events significant. Strongest: devin (β=-0.8725, p=0.0005). Overall direction: negative.
+- **Knowledge Diversity**: 0/7 events significant. Strongest: copilot_beta (β=+0.0648, p=0.1980). Overall direction: positive.
+
+
+✅ COMPLETE — results in /home/node/.openclaw/workspaces/ou_061694b4b8257fa782c21a959956256d/stackoverflow_research/results/four_dv_analysis

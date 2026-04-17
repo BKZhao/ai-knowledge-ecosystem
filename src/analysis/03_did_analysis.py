@@ -88,8 +88,8 @@ HIGH_REPLACEABILITY_THRESHOLD = 0.75
 LOW_REPLACEABILITY_THRESHOLD = 0.40
 
 # 断点日期
-CHATGPT_DATE = pd.Timestamp("2022-11-30", tz="UTC")
-COPILOT_DATE = pd.Timestamp("2022-06-21", tz="UTC")
+CHATGPT_DATE = pd.Timestamp("2022-11-30")
+COPILOT_DATE = pd.Timestamp("2022-06-21")
 
 
 def load_data(features_dir: Path) -> pd.DataFrame:

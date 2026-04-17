@@ -1,0 +1,42 @@
+\begin{tabular}{lrrrrll}
+\toprule
+variable & coefficient & std_error & t_stat & p_value & sig & model \\
+\midrule
+const & -0.0000 & 0.0011 & -0.0000 & 1.0000 &  & M1_pct_accepted \\
+did_copilot_beta & 0.0033 & 0.0149 & 0.2192 & 0.8266 &  & M1_pct_accepted \\
+did_copilot_ga & -0.0034 & 0.0221 & -0.1543 & 0.8774 &  & M1_pct_accepted \\
+did_chatgpt & 0.0044 & 0.0261 & 0.1681 & 0.8666 &  & M1_pct_accepted \\
+did_gpt4 & -0.0604 & 0.0275 & -2.1970 & 0.0283 & * & M1_pct_accepted \\
+did_llama2 & -0.0202 & 0.0434 & -0.4662 & 0.6412 &  & M1_pct_accepted \\
+did_code_llama & -0.0234 & 0.0415 & -0.5644 & 0.5726 &  & M1_pct_accepted \\
+did_devin & 0.0667 & 0.0415 & 1.6061 & 0.1086 &  & M1_pct_accepted \\
+covid & -0.0000 & 18826941548261.7617 & -0.0000 & 1.0000 &  & M1_pct_accepted \\
+const & 0.0000 & 0.0010 & 0.0000 & 1.0000 &  & M2_avg_answers_lt \\
+did_copilot_beta & -0.0290 & 0.0149 & -1.9453 & 0.0520 &  & M2_avg_answers_lt \\
+did_copilot_ga & -0.0419 & 0.0221 & -1.8904 & 0.0590 &  & M2_avg_answers_lt \\
+did_chatgpt & 0.0128 & 0.0261 & 0.4900 & 0.6242 &  & M2_avg_answers_lt \\
+did_gpt4 & -0.1055 & 0.0275 & -3.8404 & 0.0001 & *** & M2_avg_answers_lt \\
+did_llama2 & -0.0035 & 0.0434 & -0.0808 & 0.9356 &  & M2_avg_answers_lt \\
+did_code_llama & -0.0517 & 0.0415 & -1.2441 & 0.2138 &  & M2_avg_answers_lt \\
+did_devin & -0.0044 & 0.0415 & -0.1049 & 0.9165 &  & M2_avg_answers_lt \\
+const & -0.0000 & 0.0077 & -0.0000 & 1.0000 &  & M3_question_count_lt \\
+did_copilot_beta & -0.0101 & 0.1199 & -0.0844 & 0.9327 &  & M3_question_count_lt \\
+did_copilot_ga & 0.2600 & 0.1782 & 1.4595 & 0.1447 &  & M3_question_count_lt \\
+did_chatgpt & -0.3911 & 0.2096 & -1.8656 & 0.0624 &  & M3_question_count_lt \\
+did_gpt4 & 0.2170 & 0.2210 & 0.9819 & 0.3264 &  & M3_question_count_lt \\
+did_llama2 & 0.2400 & 0.3494 & 0.6868 & 0.4923 &  & M3_question_count_lt \\
+did_code_llama & -0.4632 & 0.3341 & -1.3863 & 0.1660 &  & M3_question_count_lt \\
+did_devin & 0.1477 & 0.3341 & 0.4421 & 0.6585 &  & M3_question_count_lt \\
+const & -0.0000 & 0.0011 & -0.0000 & 1.0000 &  & R1_chatgpt_only_pct_accepted \\
+did_chatgpt_only & -0.0602 & 0.0108 & -5.5801 & 0.0000 & *** & R1_chatgpt_only_pct_accepted \\
+covid & -0.0000 & 18952723962147.0820 & -0.0000 & 1.0000 &  & R1_chatgpt_only_pct_accepted \\
+const & 0.0000 & 0.0012 & 0.0000 & 1.0000 &  & R2_no_covid_pct_accepted \\
+did_copilot_beta & 0.0177 & 0.0202 & 0.8805 & 0.3789 &  & R2_no_covid_pct_accepted \\
+did_copilot_ga & -0.0146 & 0.0259 & -0.5637 & 0.5732 &  & R2_no_covid_pct_accepted \\
+did_chatgpt & 0.0044 & 0.0275 & 0.1592 & 0.8735 &  & R2_no_covid_pct_accepted \\
+did_gpt4 & -0.0604 & 0.0290 & -2.0816 & 0.0378 & * & R2_no_covid_pct_accepted \\
+did_llama2 & -0.0202 & 0.0458 & -0.4417 & 0.6588 &  & R2_no_covid_pct_accepted \\
+did_code_llama & -0.0234 & 0.0438 & -0.5348 & 0.5930 &  & R2_no_covid_pct_accepted \\
+did_devin & 0.0667 & 0.0438 & 1.5217 & 0.1286 &  & R2_no_covid_pct_accepted \\
+\bottomrule
+\end{tabular}
