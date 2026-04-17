@@ -1,0 +1,25 @@
+{
+  "site_map": {
+    "English": "ell.meta",
+    "Literature": "literature.meta"
+  },
+  "filled": {
+    "English_questions": {
+      "2019-08": 7,
+      "2021-09": 6,
+      "2023-11": 6,
+      "2024-08": 3,
+      "2026-02": 2
+    },
+    "Literature_questions": {
+      "2019-08": 1,
+      "2021-09": 2,
+      "2023-11": 1,
+      "2024-08": 2,
+      "2026-02": 2
+    },
+    "Sociology_questions": {}
+  },
+  "remaining_nulls": 99,
+  "timestamp": "2026-04-17T13:16:23.270867"
+}

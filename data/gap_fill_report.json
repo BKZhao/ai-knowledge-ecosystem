@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-04-17T13:19:14.897989",
+  "se_panel": {
+    "file": "/home/node/.openclaw/workspaces/ou_061694b4b8257fa782c21a959956256d/stackoverflow_research/data/processed/se_panel_complete_2018_2026.csv",
+    "columns": 31,
+    "rows": 99,
+    "null_count": 0,
+    "removed_columns": [
+      "Sociology_questions"
+    ],
+    "removed_reason": "Sociology.SE does not exist on Stack Exchange API (site returns 403, likely never launched or closed)",
+    "filled_english": {
+      "2019-08": 750,
+      "2021-09": 407,
+      "2023-11": 250,
+      "2024-08": 150,
+      "2026-02": 49
+    },
+    "filled_literature": {
+      "2019-08": 48,
+      "2021-09": 69,
+      "2023-11": 50,
+      "2024-08": 43,
+      "2026-02": 35
+    }
+  },
+  "so_extension": {
+    "file": "/home/node/.openclaw/workspaces/ou_061694b4b8257fa782c21a959956256d/stackoverflow_research/data/fetched_2024plus/so_monthly_extension.csv",
+    "months": 23,
+    "method": "weighted average across 14 programming language tags",
+    "note": "SO total_questions per month requires direct API call (rate limited). Sample-weighted stats are proxy for quality metrics.",
+    "avg_score_trend": [
+      0.5297,
+      0.5787,
+      0.5483,
+      0.5199,
+      0.5574,
+      0.617,
+      0.614,
+      0.605,
+      0.6312,
+      0.6543,
+      0.6924,
+      0.6691,
+      0.8193,
+      0.7513,
+      0.8447,
+      0.949,
+      1.0219,
+      0.9927,
+      1.0804,
+      0.8916,
+      1.1264,
+      1.1055,
+      1.1479
+    ],
+    "pct_answered_trend": [
+      52.35,
+      52.7,
+      51.78,
+      53.19,
+      53.45,
+      52.84,
+      55.26,
+      53.47,
+      51.97,
+      53.84,
+      57.46,
+      54.11,
+      51.34,
+      53.72,
+      53.74,
+      58.05,
+      57.68,
+      54.71,
+      57.75,
+      60.48,
+      62.29,
+      61.86,
+      61.23
+    ]
+  },
+  "notes": [
+    "Sociology column removed - site doesn't exist on SE",
+    "English/Literature: 5 missing months each filled via API",
+    "SO monthly extension: quality metrics from 14-language sample, no total_questions count",
+    "API rate limit hit during Sociology attempts - quota consumed",
+    "Recommendation: Use 30 other control sites for DID analysis (29 after Sociology removal)",
+    "For SO total_questions 2024+: either wait for API quota reset or use SEDE"
+  ]
+}
